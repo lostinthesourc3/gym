@@ -1,6 +1,6 @@
 # GAINZ
 
-# USER
+## USER
 * name
 * age
 * weight
@@ -8,13 +8,13 @@
 * height
 * m/f
 
-# ROUTINE
+## ROUTINE
 * name
 * user_id
 * ex_id
 <!--??????? * groupClass_id optional  ??????????-->
 
-# EXERCISE
+## EXERCISE
 * type
 * name
 * youtube_link
@@ -22,7 +22,7 @@
 * boolean:barbell?
 * weight
 
-# CLASS
+## CLASS
 * datetime
 * name
 * description
@@ -30,3 +30,6 @@
 
 
 
+welcome page -> **application controller**
+
+sign up page -> **new** user 
