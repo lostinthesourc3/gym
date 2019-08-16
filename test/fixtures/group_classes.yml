@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  instructor: MyString
+  name: MyString
+  sched_time: 2019-08-16 11:31:14
+
+two:
+  name: MyString
+  description: MyString
+  instructor: MyString
+  name: MyString
+  sched_time: 2019-08-16 11:31:14

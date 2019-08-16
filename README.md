@@ -11,6 +11,8 @@
 # ROUTINE
 * name
 * user_id
+* ex_id
+<!--??????? * groupClass_id optional  ??????????-->
 
 # EXERCISE
 * type
@@ -19,7 +21,6 @@
 * description
 * boolean:barbell?
 * weight
-* weight_hash
 
 # CLASS
 * datetime
