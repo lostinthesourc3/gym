@@ -13,3 +13,4 @@ class Exercise < ApplicationRecord
         Exercise.all.map{|e| e.type_of}.uniq.sort
     end
 end
+

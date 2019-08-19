@@ -5,6 +5,5 @@ class RoutinesController < ApplicationController
 
     def show
         @routine = Routine.find(params[:id])
-        @exercises = Exercise.all
     end
 end

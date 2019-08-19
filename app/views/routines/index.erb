@@ -1,6 +1,6 @@
 <h2>All of the routines:</h2>
 
 <% @routines.each do |rou| %>
-  <%= rou.name %>
+  <%= link_to rou.name.capitalize, routine_path(rou) %>
   <br>
 <% end %>
