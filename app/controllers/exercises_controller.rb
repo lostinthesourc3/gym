@@ -1,7 +1,6 @@
 class ExercisesController < ApplicationController
     def index
-        @exercises = Exercise.all
-        #@types = [“abs”, “arms”, “back”, “chest”, “full body”, “leg”, “shoulder”]
+        @exercises = Exercise.exercise_hash
     end
 
     def show
