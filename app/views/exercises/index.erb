@@ -5,7 +5,9 @@
   <h4><%=type.capitalize%></h4>
     <%exercise.each do |e|%>
       <%= link_to e.name.capitalize, exercise_path(e) %>
+      <%= button_to "Add to routine" %>
     <br>
   <% end %>
   <br>
 <% end %>
+
