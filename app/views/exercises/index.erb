@@ -1,0 +1,11 @@
+<h2>All exercises:</h2>
+
+<%# sort by type_of and name%>
+<% @exercises = @exercises.order(type_of: :asc, name: :asc) %>
+
+
+<br>
+<% @exercises.each do |ex| %>
+  <%= link_to ex.name, exercise_path(ex) %>
+  <br>
+<% end %>
