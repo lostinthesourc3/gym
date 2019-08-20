@@ -5,11 +5,16 @@ Rails.application.routes.draw do
   resources :routines, only: [:index, :show]
   resources :group_classes, only: [:index, :show]
 
+  # user routes
+  get '/users/:id/edit', to: "users#edit"
+  patch '/users/:id', to: "users#update"
+
   # routine routes
   get '/routine', to: "routine#update", as: :add_exercise_to_routine
   delete '/routines/:id', to: "routines#destroy"
 
   # carts route
   patch '/cart', to:"cart#update", as: "add_to_cart"
+
 
 end
