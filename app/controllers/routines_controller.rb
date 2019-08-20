@@ -15,4 +15,20 @@ class RoutinesController < ApplicationController
     end
 
     # method to update or edit
+
+    def create
+        @routine = Routine.create(routine_params)
+        redirect_to routine_path(@routine)
+    end
+
+
+    def edit
+        @routine = Routine.find(params[:id])
+    end
+
+
+    private 
+    def routine_params
+        params.require(:routine).permit(:name, :exercise_id)
+    end
 end
