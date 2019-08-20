@@ -12,10 +12,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
-User.create(name: "Max", age: 22, weight: 185, weight_goal: 200, height_inch: 72, sex: "m")
-User.create(name: "Alice", age: 29, weight: 150, weight_goal: 120, height_inch: 63, sex: "f")
-
 # Exercise.create(type_of: "idk", name: "burpees", youtube_link: "some link", description: "description", barbell?: false, weight: 0)
 # Exercise.create(type_of: "idk", name: "push-ups", youtube_link: "some link", description: "description", barbell?: false, weight: 0)
 # Exercise.create(type_of: "idk", name: "overhead claps", youtube_link: "some link", description: "description", barbell?: false, weight: 0)

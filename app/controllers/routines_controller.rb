@@ -14,8 +14,6 @@ class RoutinesController < ApplicationController
         redirect_to routines_path
     end
 
-    # method to update or edit
-
     def create
         @routine = Routine.create(routine_params)
         redirect_to routine_path(@routine)

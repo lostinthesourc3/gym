@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     # skip_before_action :authorized, only: [:new, :create, :show]
-    before_action :find_user, only: [:show]
+    before_action :find_user, only: [:show, :delete]
 
 
     def index
@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     end 
 
     def show
+        # @user = User.find(params[:id])
         @user_routines = Routine.all
     end
 
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
     end
 
     def update
+        # @user = User.find(params[:id])
         if @user.update(user_params)
             flash[:notice] = "Successfully updated profile"
             redirect_to @user
@@ -42,10 +44,13 @@ class UsersController < ApplicationController
         end
     end
 
-    def destroy
+
+    def delete
+        # @user = User.find(params[:id])
+        #byebug
         @user.destroy
         flash[:notice] = "Account deleted"
-        redirect_to new_user_path
+        redirect_to users_path
     end
 
 
