@@ -41,8 +41,4 @@ Exercise.create(type_of: "abs", name: "sit-ups", youtube_link: "URL", descriptio
 
 
 
-
-Routine.create(name: "monday", user_id: 1, exercise_id: 2)
-Routine.create(name: "tuesday", user_id: 2, exercise_id: 4)
-
 GroupClass.create(name: "Zumba", description: "dance", instructor: "Dora the Explorer")

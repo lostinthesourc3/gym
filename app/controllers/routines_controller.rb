@@ -14,9 +14,16 @@ class RoutinesController < ApplicationController
         redirect_to routines_path
     end
 
+    def new
+        @routine = Routine.new
+    end
+
     def create
-        @routine = Routine.create(routine_params)
-        redirect_to routine_path(@routine)
+        params[:exercises].each do |e|
+            @routine = Routine.create(name: "Monday", user_id: 1, exercise_id: e.to_i)
+            #byebug
+        end
+        redirect_to (routine_path(@routine))
     end
 
 

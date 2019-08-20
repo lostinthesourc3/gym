@@ -12,8 +12,6 @@ class ExercisesController < ApplicationController
         @exercise = Exercise.find(params[:id])
     end
 
-    
-
     private
     def find_exercise
         @exercise = Exercise.find(params[:id])

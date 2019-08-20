@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
     cart << exercise_id
   end
 
-
   # method to add a item to a cart
   def show_cart
     # GETTING ALL THE ITEMS

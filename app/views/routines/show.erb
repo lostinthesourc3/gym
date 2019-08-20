@@ -3,6 +3,7 @@
 
 <p> Name: <%= @routine.name.capitalize%> </p>
 <p> Exercises: 
+
 <% @routine.find_exercises.each do |e|%>
     <%=  e.name %>
 <% end %>

@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        # {username: 'hi', password: 'bye', profile_photo: 'longwwwwwsitelinkurlpicture'}
         if @user.valid?
             flash[:notice] = "Signup successful! Welcome, #{@user.name}"
             session[:user_id] = @user.id

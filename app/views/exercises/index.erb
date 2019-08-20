@@ -12,8 +12,8 @@
   <% end %>
 </ol>
 
-
-<%= button_to "Create Routine", new_routine_path, method: :post, params: {user_id: @user.id, exercise_name: e.name}%>
+                                                                 <%####FIX THIS vvv%>
+<%= button_to "Create Routine", routines_path, method: :post, params: {user: 2, exercises: @cart_exercises}%>
 
 
 <h2>All exercises:</h2>
