@@ -1,13 +1,33 @@
+<h4>Your Exercise Cart: </h4>
+<% if flash[:notice]%>
+  <%= flash[:notice]%>
+<% end %>
+
+
+<ol>
+  <% if @cart_exercises %>
+    <% @cart_exercises.each do |ex| %>
+    <li><%= ex.name %></li>
+    <% end %>
+  <% end %>
+</ol>
+
+
+<%= button_to "Create Routine"%>
+
+
 <h2>All exercises:</h2>
 
 <br>
-<% @exercises.each do |type, exercise| %>
+<% @exercises.each do |type, ex| %>
   <h4><%=type.capitalize%></h4>
-    <%exercise.each do |e|%>
+    <%ex.each do |e|%>
       <%= link_to e.name.capitalize, exercise_path(e) %>
-      <%= button_to "Add to routine" %>
+      <%= button_to "Add to routine", add_to_cart_path, method: :patch, params: {exercise_id: e.id, exercise_name: e.name}%>
     <br>
   <% end %>
   <br>
 <% end %>
+
+
 
