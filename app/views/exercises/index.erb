@@ -13,7 +13,7 @@
 </ol>
 
 
-<%= button_to "Create Routine"%>
+<%= button_to "Create Routine", new_routine_path, method: :post, params: {user_id: @user.id, exercise_name: e.name}%>
 
 
 <h2>All exercises:</h2>

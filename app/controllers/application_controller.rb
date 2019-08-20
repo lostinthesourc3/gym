@@ -13,9 +13,7 @@ class ApplicationController < ActionController::Base
   # method to add a item to a cart
   def show_cart
     # GETTING ALL THE ITEMS
-
     @cart_exercises = Exercise.find(cart)
-
   end
 
 end
