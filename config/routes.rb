@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   # routine routes
   get '/routine', to: "routine#update", as: :add_exercise_to_routine
-  
+  delete '/routines/:id', to: "routines#destroy"
+
   # carts route
   patch '/cart', to:"cart#update", as: "add_to_cart"
 

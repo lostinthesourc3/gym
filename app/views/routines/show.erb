@@ -6,3 +6,6 @@
 <% @routine.find_exercises.each do |e|%>
     <%=  e.name %>
 <% end %>
+
+
+<%= button_to "Delete Routine", @user, method: :delete %>
