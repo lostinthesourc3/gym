@@ -2,10 +2,11 @@
 
 
 <p> Name: <%= @routine.name.capitalize%> </p>
-<p> Exercises: 
+<h4> Exercises: </h4>
 
 <% @routine.find_exercises.each do |e|%>
     <%=  e.name %>
+    <br>
 <% end %>
 
 

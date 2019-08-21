@@ -1,6 +1,9 @@
 class RoutinesController < ApplicationController
     def index
-        @routines = Routine.all
+        @routines = []
+        Routine.where(user_id: 1).map{|r| r.name}.uniq.each do |r|
+            @routines << Routine.find_by(name: r)
+        end
     end
 
     def show
@@ -9,8 +12,7 @@ class RoutinesController < ApplicationController
 
     def destroy
         @routine = Routine.find(params[:id])
-        @routine.destroy
-
+        @routine.find_routines.each {|r| r.destroy}
         redirect_to routines_path
     end
 
@@ -19,11 +21,13 @@ class RoutinesController < ApplicationController
     end
 
     def create
-        params[:exercises].each do |e|
-            @routine = Routine.create(name: "Monday", user_id: 1, exercise_id: e.to_i)
+        byebug
+        sessions[:cart_exercises].each do |e|
+            @routine = Routine.create(name: params[:name], user_id: , exercise_id: e.to_i)
             #byebug
         end
-        redirect_to (routine_path(@routine))
+        sessions[:cart_exercises] = []
+        redirect_to routine_path(@routine)
     end
 
 
