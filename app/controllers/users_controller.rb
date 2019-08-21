@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # skip_before_action :authorized, only: [:new, :create, :show]
+    skip_before_action :authorized, only: [:new, :create]
     before_action :find_user, only: [:show, :delete]
 
 
@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     end 
 
     def show
-        # @user = User.find(params[:id])
-        @user_routines = Routine.all
+        @user = find_user
+        @user_routines = Routine.select{|r| r.user_id == @user.id}
     end
 
     def new

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_181442) do
+ActiveRecord::Schema.define(version: 2019_08_21_174758) do
 
   create_table "exercises", force: :cascade do |t|
     t.string "type_of"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_181442) do
     t.datetime "updated_at", null: false
     t.string "password"
     t.string "username"
+    t.string "password_digest"
   end
 
 end

@@ -1,0 +1,3 @@
+class WeightController < ApplicationController
+    
+end

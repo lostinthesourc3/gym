@@ -1,4 +1,4 @@
-<h2>All of the routines:</h2>
+<h2>All of the routines for <%=current_user.username%>:</h2>
 
 <% @routines.each do |rou| %>
   <%= link_to rou.name.capitalize, routine_path(rou) %>

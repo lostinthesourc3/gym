@@ -21,13 +21,11 @@ class RoutinesController < ApplicationController
     end
 
     def create
-        byebug
-        ##### USE SESSIONS FOR CART
-        sessions[:cart_exercises].each do |e|
-            @routine = Routine.create(name: params[:name], user_id: , exercise_id: e.to_i)
-            #byebug
+        session[:cart_exercises].each do |e|
+            @routine = Routine.create(name: params[:name], user_id: current_user.id, exercise_id: e.to_i)
         end
-        sessions[:cart_exercises] = []
+        session[:cart_exercises] = [] 
+        #byebug
         redirect_to routine_path(@routine)
     end
 

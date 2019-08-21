@@ -1,7 +1,22 @@
 class ApplicationController < ActionController::Base
-    # method to be my cart
+  helper_method :current_user
+  helper_method :logged_in?
+  before_action :authorized
+  
+  def current_user
+    @user = User.find_by({ id: session[:user_id] })
+  end
+
+  def logged_in?
+    !!current_user
+  end
+
+  def authorized
+    redirect_to login_path unless logged_in?
+  end
+  
   def cart
-    session[:cart] ||= []
+    session[:cart_exercises] ||= []
   end
 
   # need to hold all my item id's

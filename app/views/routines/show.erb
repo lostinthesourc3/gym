@@ -3,11 +3,16 @@
 
 <p> Name: <%= @routine.name.capitalize%> </p>
 <p> Exercises: 
-
+<br>
+<br>
 <% @routine.find_exercises.each do |e|%>
-    <%=  e.name %>
+    <%= e.name.capitalize %>
+    <%if e.barbell?%>
+        <%= button_to "Enter a weight", exercise_path(e), method: :get%>
+    <%end%>
+    <br>
 <% end %>
 
 
-<%= button_to "Delete Routine", @user, method: :delete %>
-<%= button_to "Edit Routine" %>
+<%= button_to "Delete Routine", delete_routine_path(@routine), method: :delete%>
+<%= button_to "All Routines", '/routines', method: :get %>

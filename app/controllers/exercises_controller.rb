@@ -4,12 +4,17 @@ class ExercisesController < ApplicationController
 
     def index
         @exercises = Exercise.exercise_hash
-        # show_cart
     end
 
     def show
-    
         @exercise = Exercise.find(params[:id])
+    end
+
+    def weight
+        byebug
+        @exercise = Exercise.find(params[:id])
+        @exercise.weight = params[:weight]
+        redirect_to :weight
     end
 
     private
