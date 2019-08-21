@@ -28,5 +28,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
   # exercise routes
-  get '/exercise/weight/:id', to: 'exercise#weight', as: 'exercises_weight'
+  get 'exercises/weight/:id', to: 'exercises#weight', as: 'exercises_weight'
 end

@@ -6,7 +6,7 @@
 <% if @exercise.weight == 0%>
     <p> Enter a weight: </p>
 
-    <%= form_tag("exercises/#{@exercise.id}/weight" method: :get) do %> 
+    <%= form_tag("weight/#{@exercise.id}", method: :get) do %> 
         <%= hidden_field_tag 'id', @exercise.id %>
         <%= text_field_tag :weight %>
         <br>
