@@ -23,17 +23,25 @@ class RoutinesController < ApplicationController
             @routine = Routine.create(name: "Monday", user_id: 1, exercise_id: e.to_i)
             #byebug
         end
-        redirect_to (routine_path(@routine))
+        redirect_to routine_path(@routine)
     end
 
 
     def edit
         @routine = Routine.find(params[:id])
+        @exercises = Exercise.all
     end
 
+    def update 
+        @routine = Routine.find(params[:id])
+        @routine.update(routine_params)
+
+        redrect_to routine_path(routine_path)
+    end
 
     private 
     def routine_params
         params.require(:routine).permit(:name, :exercise_id)
     end
 end
+

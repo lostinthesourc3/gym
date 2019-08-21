@@ -2,12 +2,13 @@
 
 
 <p> Name: <%= @routine.name.capitalize%> </p>
-<p> Exercises: 
-
+<p> <strong>Exercises: </strong>
+<br>
 <% @routine.find_exercises.each do |e|%>
     <%=  e.name %>
+    <br>
 <% end %>
 
 
 <%= button_to "Delete Routine", @user, method: :delete %>
-<%= button_to "Edit Routine" %>
+<%= button_to "Edit Routine", '/routines/:id/edit', method: :get %>

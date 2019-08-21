@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   delete '/routines/:id', to: "routines#destroy"
  
   # carts route
-  patch '/cart', to:"cart#update", as: "add_to_cart"
+  patch '/cart', to: "cart#update", as: "add_to_cart"
+  delete '/cart', to: "cart#destroy", as: "clear_cart"
 end

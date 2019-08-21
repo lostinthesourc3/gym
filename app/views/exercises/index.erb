@@ -14,7 +14,7 @@
 
                                                                  <%####FIX THIS vvv%>
 <%= button_to "Create Routine", routines_path, method: :post, params: {user: 2, exercises: @cart_exercises}%>
-
+<%= button_to "Clear", clear_cart_path, method: :delete %>
 
 <h2>All exercises:</h2>
 

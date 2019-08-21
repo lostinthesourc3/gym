@@ -8,4 +8,9 @@ class CartController < ApplicationController
         # response
         redirect_to exercises_path
     end
+
+    def destroy
+        session.delete(:cart)
+        redirect_to exercises_path
+    end
 end

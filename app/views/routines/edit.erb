@@ -1,1 +1,7 @@
-<h3>edit routine</h3>
+<h3>Edit Routine</h3>
+
+<% if @routines %>
+    <% @routines.each do |r| %>
+    <li><%= r.name %></li>
+    <% end %>
+  <% end %>
