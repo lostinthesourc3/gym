@@ -1,9 +1,9 @@
-<h2> Exercise info: </h2>
+<div class = "center_box">
+<h1> <%="#{@exercise.name.capitalize}"%> </h1>
 
-<p> Name: <%= @exercise.name%> </p>
-<p> Type: <%= @exercise.type_of%> </p>
+<p> Type: <%= @exercise.type_of.capitalize%> </p>
 <p> Video instructions: <%= @exercise.youtube_link%></p>
-<% if @exercise.weight == 0%>
+<% if @exercise.weight == 0 && @exercise.barbell? == true%>
     <p> Enter a weight: </p>
 
     <%= form_tag("weight/#{@exercise.id}", method: :get) do %> 
@@ -13,20 +13,20 @@
         <%= submit_tag 'Get Plates'%>
     <% end %>
 
-<% else %>
+<% elsif @exercise.barbell == true%>
     <p> Weight: <%= @exercise.weight%> </p>
     <%@exercise.barbell.each do |plate, amount|%>  
         <%="#{plate}: #{amount}"%>
         <br>
     <%end%>
-
     <p> Enter a new weight: </p>
-
     <%= form_tag("weight/#{@exercise.id}", method: :get) do %> 
         <%= hidden_field_tag 'id', @exercise.id %>
         <%= text_field_tag :weight %>
         <br>
         <%= submit_tag 'Get Plates'%>
     <% end %>
+<% else %>
     
 <% end %>
+</div>

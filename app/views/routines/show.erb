@@ -1,18 +1,17 @@
-<h2> Routine: </h2>
+<div class = "center_box">
+<h1> Routine: <%= @routine.name.capitalize%></h1>
 
-
-<p> Name: <%= @routine.name.capitalize%> </p>
-<p> Exercises: 
-<br>
-<br>
+<h3> Exercises: </h3>
 <% @routine.find_exercises.each do |e|%>
-    <%= e.name.capitalize %>
+    <%= link_to e.name.capitalize, exercise_path(e), class: "exercise_name" %>
     <%if e.barbell?%>
         <%= button_to "Enter a weight", exercise_path(e), method: :get%>
     <%end%>
     <br>
 <% end %>
 
-
+<br>
 <%= button_to "Delete Routine", delete_routine_path(@routine), method: :delete%>
+<br>
 <%= button_to "All Routines", '/routines', method: :get %>
+</div>

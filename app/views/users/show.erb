@@ -1,24 +1,26 @@
-<h2> User profile: </h2>
+<div class = "center_box">
+<h1> User profile: </h1>
 
 <p><strong> Name: <%= @user.name%> </strong></p>
 <p> Username: <%= @user.username%></p>
 <p> Age: <%= @user.age%> </p>
-<p> Height: <%= @user.height_inch%> in</p>
-<p> Weight: <%= @user.weight%> lb</p>
-<p> Weight goal: <%= @user.weight_goal%> </p>
-
+<p> Height: <%= @user.height_inch%> inches</p>
 <%# show all routines for that user %>
-<p> show routines:<br>
-<% @user_routines.each do |r|%>
-    <%=link_to r.name, routine_path(r)%>
-    <br>
+<br>
+<div class = "highlight">
+<% if @user_routines != [] %>
+    <h3> Your Routines:</h3>
+    <% @user_routines.each do |r|%>
+        <%=link_to r.name, routine_path(r)%>
+        <br>
+    <% end %>
+<% else %>
+    <p class = "no_space">You have no routines!</p>
 <% end %>
+</div>
 
 <%= button_to "Create Routine", exercises_path, method: :get %>
-<%= button_to "Logout", logout_path, method: :delete %>
+</div>
 
-
-<br>
-
-
+<%# <%= button_to "Logout", logout_path, method: :delete %>
 <%# <%= button_to "Delete Account", @user, method: :delete %> 

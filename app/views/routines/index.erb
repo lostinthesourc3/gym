@@ -1,6 +1,15 @@
-<h2>All of the routines for <%=current_user.username%>:</h2>
+<div class = "center_box">
+<h1>All of <%=current_user.name.capitalize%>'s Routines':</h1>
 
-<% @routines.each do |rou| %>
-  <%= link_to rou.name.capitalize, routine_path(rou) %>
-  <br>
+<% if @routines != [] %>
+    <h3> Your Routines:</h3>
+    <% @routines.each do |r|%>
+        <%=link_to r.name.capitalize, routine_path(r), class: 'exercise_name' %>
+        <br>
+    <% end %>
+<% else %>
+    <p class = "no_space">You have no routines!</p>
 <% end %>
+<br>
+<%= button_to "Create Routine", exercises_path, method: :get %>
+</div>

@@ -1,7 +1,7 @@
 class RoutinesController < ApplicationController
     def index
         @routines = []
-        Routine.where(user_id: 1).map{|r| r.name}.uniq.each do |r|
+        Routine.where(user_id: current_user.id).map{|r| r.name}.uniq.each do |r|
             @routines << Routine.find_by(name: r)
         end
     end

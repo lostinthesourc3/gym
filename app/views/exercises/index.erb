@@ -1,37 +1,57 @@
-<h4>Your Exercise Cart: </h4>
+<div class = "center_box">
+  <h2>Your Exercise Cart: </h2>
 
-  <% if flash[:notice]%>
-    <%= flash[:notice]%>
-  <% end %>
-
-  <ol>
-    <% if @cart_exercises %>
-      <% @cart_exercises.each do |ex| %>
-      <li><%= ex.name %></li>
-      <% end %>
+    <% if flash[:notice]%>
+      <%= flash[:notice]%>
     <% end %>
-  </ol>
-
-<%= form_tag('/routines', method: :post) do %> 
-  <%= text_field_tag :name %>
-  <br>
-  <%= submit_tag 'Create Routine'%>
-<% end %>
-
-<%= button_to "Clear", clear_cart_path, method: :delete %>
-
-<h2>All exercises:</h2>
+    <div class = "highlight">
+      <ol class = "cart">
+        <% if @cart_exercises != []%>
+          <% @cart_exercises.each do |ex| %>
+          <li><%= ex.name.capitalize %></li>
+          <br>
+          <% end %>
+        <% else %>
+          Your exercise cart is empty!
+        <% end %>
+    </ol>
+    </div>
+    <br>
+    <%= form_tag('/routines', method: :post) do %> 
+      <%= label_tag 'name', 'Name your new routine:' %>
+      <%= text_field_tag :name %>
+      <br>
+      <div class ="parent">
+      <span class = "create_routine">
+      <%= submit_tag 'Create Routine'%>
+      </span>
+    <% end %>
+    <span class = "clear">
+    <%= button_to "Clear", clear_cart_path, method: :delete %>
+    </span>
+    </div>
+</div>
 
 <br>
-<% @exercises.each do |type, ex| %>
-  <h4><%=type.capitalize%></h4>
-    <%ex.each do |e|%>
-      <%= link_to e.name.capitalize, exercise_path(e) %>
-      <%= button_to "Add to routine", add_to_cart_path, method: :patch, params: {exercise_id: e.id, exercise_name: e.name}%>
+<br>
+<div class = "all">
+  <h2>All Exercises:</h2>
+  <% @exercises.each do |type, ex| %>
+    <div class = "type">
+        <h3 class = "exercise_type"><%=type.capitalize%></h3>
+        <div class = "exercise_row">
+          <%ex.each do |e|%>
+            <div class = "exercise">
+                <%= link_to e.name.capitalize, exercise_path(e), class: "exercise_name" %>
+                <%= button_to "Add to routine", add_to_cart_path, method: :patch, params: {exercise_id: e.id, exercise_name: e.name}, class: 'add_to_routine_button'%>
+            </div>
+          <% end %>
+        </div>
+    </div>
     <br>
   <% end %>
-  <br>
-<% end %>
+</div>
+
 
 
 
