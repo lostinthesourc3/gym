@@ -2,4 +2,9 @@
 
 <p> Name: <%= @exercise.name%> </p>
 <p> Weight: <%= @exercise.weight%> </p>
-<p> Plates: <%= @plate_hash%> </p>
+
+<p> Plates: </p>
+<%@exercise.barbell.each do |plate, amount|%>  
+<%="#{plate}: #{amount}"%>
+<br>
+<%end%>

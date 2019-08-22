@@ -15,4 +15,18 @@
 
 <% else %>
     <p> Weight: <%= @exercise.weight%> </p>
+    <%@exercise.barbell.each do |plate, amount|%>  
+        <%="#{plate}: #{amount}"%>
+        <br>
+    <%end%>
+
+    <p> Enter a new weight: </p>
+
+    <%= form_tag("weight/#{@exercise.id}", method: :get) do %> 
+        <%= hidden_field_tag 'id', @exercise.id %>
+        <%= text_field_tag :weight %>
+        <br>
+        <%= submit_tag 'Get Plates'%>
+    <% end %>
+    
 <% end %>
