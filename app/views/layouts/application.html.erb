@@ -4,21 +4,24 @@
     <title>Gym</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <ul>
-      <li><a href = 'user_path'>Account</a></li>
-      <li style="float:right"><form class="button_to" method="post" action="/logout">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Logout">
-      <input type="hidden" name="authenticity_token" value="d5BXxu/KTXfJkLqAMdBUpruC21BChCvGWJDogIcAIJQdCu71YLi7ueqY/EAiM+Wf6ABxyQG2lraX0g68WYD5bg=="></form>
-      </li>
-      <%# <li style="float:right"><a class="active" href='/logout'>Logout</a> %>
-    </ul>
+    <% if logged_in? %>
+      <ul>
+        <li><a href = <%=user_path(current_user)%>>Account</a></li>
+        <li><a href = <%=routines_path%>>Your Routines</a></li>
+        <li style="float:right"><form class="button_to" method="post" action="/logout">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Logout">
+        <input type="hidden" name="authenticity_token" value="d5BXxu/KTXfJkLqAMdBUpruC21BChCvGWJDogIcAIJQdCu71YLi7ueqY/EAiM+Wf6ABxyQG2lraX0g68WYD5bg=="></form>
+        </li>
+        <%# <li style="float:right"><a class="active" href='/logout'>Logout</a> %>
+      </ul>
+    <% end %>
     <%= yield %>
   </body>
 </html>

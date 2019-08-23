@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-    before_action :find_exercise, only: [:show]
+    #before_action :find_exercise, only: [:show]
     before_action :show_cart, only: [:index]
 
     def index
@@ -7,6 +7,7 @@ class ExercisesController < ApplicationController
     end
 
     def show
+        #byebug
         @exercise = Exercise.find(params[:id])
     end
 

@@ -1,12 +1,16 @@
 <div class = "center_box">
-<h1>All of <%=current_user.name.capitalize%>'s Routines':</h1>
+<h1>All of <%=current_user.name.capitalize%>'s Routines:</h1>
 
 <% if @routines != [] %>
-    <h3> Your Routines:</h3>
-    <% @routines.each do |r|%>
-        <%=link_to r.name.capitalize, routine_path(r), class: 'exercise_name' %>
-        <br>
-    <% end %>
+
+    <div class = "exercise_row">
+        <% @routines.each do |r| %>
+            <div class = "exercise_for_routine">
+                <%= link_to r.name.capitalize, routine_path(r), class: "exercise_name" %>
+            </div>
+            <br>
+        <% end %>
+    </div>
 <% else %>
     <p class = "no_space">You have no routines!</p>
 <% end %>

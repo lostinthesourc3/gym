@@ -28,7 +28,7 @@ class Exercise < ApplicationRecord
         
           plate_array.each do |plate_size|
               plate_amount = (one_side_weight / plate_size).floor
-              plate_hash[plate_size.to_s.to_sym] = plate_amount
+              plate_hash[plate_size.to_s.to_sym] = plate_amount * 2
               one_side_weight -= (plate_size * plate_amount)
           end 
         end

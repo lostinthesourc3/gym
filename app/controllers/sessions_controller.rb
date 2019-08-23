@@ -2,7 +2,11 @@ class SessionsController < ApplicationController
     skip_before_action :authorized, except: :destroy
   
     def new
-      render :new
+      if logged_in?
+        redirect_to user_path(current_user) 
+      else
+        render :new
+      end
     end
   
     def create

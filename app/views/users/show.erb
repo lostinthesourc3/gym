@@ -1,20 +1,22 @@
 <div class = "center_box">
-<h1> User profile: </h1>
+<h1> User Profile: </h1>
 
-<p><strong> Name: <%= @user.name%> </strong></p>
+<p><strong> Name: <%= @user.name.capitalize%> </strong></p>
 <p> Username: <%= @user.username%></p>
 <p> Age: <%= @user.age%> </p>
 <p> Height: <%= @user.height_inch%> inches</p>
 <%# show all routines for that user %>
 <br>
-<div class = "highlight">
+
 <% if @user_routines != [] %>
-    <h3> Your Routines:</h3>
+    <div class = "highlight_v2">
+    <h3 class = "your_routines"> Your Routines:</h3>
     <% @user_routines.each do |r|%>
-        <%=link_to r.name, routine_path(r)%>
+        <%=link_to r.name.capitalize, routine_path(r), class: 'routine_name' %>
         <br>
     <% end %>
 <% else %>
+    <div class = "highlight">
     <p class = "no_space">You have no routines!</p>
 <% end %>
 </div>

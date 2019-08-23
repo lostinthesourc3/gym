@@ -1,10 +1,16 @@
-<h1>On each side of the bar you will need:</h1>
-
-<p> Name: <%= @exercise.name%> </p>
-<p> Weight: <%= @exercise.weight%> </p>
-
-<p> Plates: </p>
-<%@exercise.barbell.each do |plate, amount|%>  
-<%="#{plate} lb: #{amount}"%>
-<br>
-<%end%>
+<div class ="center_box">
+    <h1>Plateset for <%=@exercise.weight%> pounds:</h1>
+    <%if @exercise.barbell.class != String%>
+            <div class = "highlight_v2">
+                <%@exercise.barbell.each do |plate, amount|%>  
+                    <%="#{plate}\'s -- #{amount}"%>
+                    <br>
+                <%end%>
+            </div>
+        <%elsif @exercise.barbell.class == String%>
+            <div class = "highlight_v2">
+                <%=@exercise.barbell%>
+            </div>
+        <% end %>
+    <%= button_to "Back to your exercise", exercise_path(@exercise), method: :get %>
+</div>

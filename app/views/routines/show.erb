@@ -1,16 +1,37 @@
 <div class = "center_box">
 <h1> Routine: <%= @routine.name.capitalize%></h1>
-
-<h3> Exercises: </h3>
-<% @routine.find_exercises.each do |e|%>
-    <%= link_to e.name.capitalize, exercise_path(e), class: "exercise_name" %>
-    <%if e.barbell?%>
-        <%= button_to "Enter a weight", exercise_path(e), method: :get%>
-    <%end%>
-    <br>
-<% end %>
-
+</div>
+<%# <h3> Exercises: </h3> %>
+<%#########%>
+<%# <% @routine.find_exercises.each do |e|%>
+    <%# <%= link_to e.name.capitalize, exercise_path(e), class: "exercise_name" %>
+    <%# <%if e.barbell?%>
+      <%#   <br>
+      <%#   <br>
+     <%#    <%= button_to "Enter a weight", exercise_path(e), method: :get%>
+   <%#  <%end%>
+  <%#   <br>
+<% end %> 
+<%#########%>
+<div class = "all_for_routine">
+  <h3>Exercises:</h3>
+  <div class = "exercise_row">
+    <% @routine.find_exercises.each do |e| %>
+        <div class = "exercise_for_routine">
+            <%= link_to e.name.capitalize, exercise_path(e), class: "exercise_name" %>
+            <%# <%if e.barbell?%>
+               <%#  <br>
+               <%#  <br>
+               <%#  <%= button_to "Enter a weight", exercise_path(e), method: :get %>
+            <%# <%end%>
+        </div>
+        <br>
+    <% end %>
+  </div>
+</div>
+<%#########%>
 <br>
+<div class = "center_box">
 <%= button_to "Delete Routine", delete_routine_path(@routine), method: :delete%>
 <br>
 <%= button_to "All Routines", '/routines', method: :get %>

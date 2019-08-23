@@ -9,7 +9,12 @@ class UsersController < ApplicationController
 
     def show
         @user = find_user
-        @user_routines = Routine.select{|r| r.user_id == @user.id}
+        # @user_routines = Routine.select{|r| r.user_id == @user.id}
+        @user_routines = []
+        Routine.where(user_id: current_user.id).map{|r| r.name}.uniq.each do |r|
+            @user_routines << Routine.find_by(name: r)
+        end
+        flash[:notice] = ""
     end
 
     def new

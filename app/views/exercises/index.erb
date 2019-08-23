@@ -4,17 +4,18 @@
     <% if flash[:notice]%>
       <%= flash[:notice]%>
     <% end %>
-    <div class = "highlight">
-      <ol class = "cart">
         <% if @cart_exercises != []%>
+        <div class = "highlight">
+        <ol class = "cart">
           <% @cart_exercises.each do |ex| %>
           <li><%= ex.name.capitalize %></li>
           <br>
           <% end %>
+        </ol>
         <% else %>
-          Your exercise cart is empty!
+          <div class = "highlight_empty_cart">
+          <p class = "cart_empty">Your exercise cart is empty!</p>
         <% end %>
-    </ol>
     </div>
     <br>
     <%= form_tag('/routines', method: :post) do %> 
