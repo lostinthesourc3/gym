@@ -20,7 +20,11 @@
     <br>
     <%= form_tag('/routines', method: :post) do %> 
       <%= label_tag 'name', 'Name your new routine:' %>
+<<<<<<< HEAD
       <%= text_field_tag :name, (params[:name] or "Untitled")%>
+=======
+      <%= text_field_tag :name, (params[:name] or "Untitled") %>
+>>>>>>> 88f08a038bb4c13b5735d223ffa66ee6bcd86410
       <br>
       <div class ="parent">
       <span class = "create_routine">
