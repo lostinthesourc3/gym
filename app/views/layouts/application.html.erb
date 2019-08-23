@@ -28,6 +28,13 @@
       </ul>
     </div>
     <% end %>
+    <% if !logged_in? %>
+    <div class = "navigation">
+      <div class = "img_box">
+        <img src= <%=asset_path('barbell.png')%> alt="logo" height=20px width=47px>
+      </div>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

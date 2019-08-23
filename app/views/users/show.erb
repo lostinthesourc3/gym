@@ -4,7 +4,10 @@
 <p><strong> Name: <%= @user.name.capitalize%> </strong></p>
 <p> Username: <%= @user.username%></p>
 <p> Age: <%= @user.age%> </p>
-<p> Height: <%= @user.height_inch%> inches</p>
+
+<%feet = (@user.height_inch/12).floor%>
+<%inches = @user.height_inch % 12%>
+<p> Height: <%= "#{feet} feet, #{inches} inches"%> </p>
 <%# show all routines for that user %>
 <br>
 
