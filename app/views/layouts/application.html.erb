@@ -11,17 +11,22 @@
 
   <body>
     <% if logged_in? %>
+    <div class = "navigation">
+      <div class = "img_box">
+        <img src= <%=asset_path('barbell.png')%> alt="logo" height=20px width=47px>
+      </div>
       <ul>
         <li><a href = <%=user_path(current_user)%>>Account</a></li>
         <li><a href = <%=routines_path%>>Your Routines</a></li>
         <li style="float:right"><form class="button_to" method="post" action="/logout">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Logout">
+        <input class = "logout" type="submit" value="Logout">
         <input type="hidden" name="authenticity_token" value="d5BXxu/KTXfJkLqAMdBUpruC21BChCvGWJDogIcAIJQdCu71YLi7ueqY/EAiM+Wf6ABxyQG2lraX0g68WYD5bg=="></form>
         </li>
         <li><a href = <%=exercises_path%>>New Routine</a></li>
         <%# <li style="float:right"><a class="active" href='/logout'>Logout</a> %>
       </ul>
+    </div>
     <% end %>
     <%= yield %>
   </body>
