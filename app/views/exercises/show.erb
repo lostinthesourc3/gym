@@ -1,8 +1,9 @@
 <div class = "center_box">
 <h1> <%="#{@exercise.name.capitalize}"%> </h1>
-
+<div class = "video">
 <iframe width=100% height="260" src=<%="#{@exercise.youtube_link}"%> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <br>
+</div>    
+<br>
 <% if @exercise.weight == 0 && @exercise.barbell? == true%>
     <p> Enter a weight: </p>
     <%= form_tag("weight/#{@exercise.id}", method: :get) do %> 
