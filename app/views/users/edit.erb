@@ -6,13 +6,18 @@
         <%= f.text_field :name %>
 
         <br>
-        <%= f.label :age %>
-        <%= f.number_field :age %>
-
-        <br>
-        <%= f.label "Heigh (in)" %>
-        <%= f.number_field :height_inch %>
-
+        <div class="parent_height_age">
+            <div class = "height_age_box">
+                <%= f.label :age %>
+                <br>
+                <%= f.number_field :age, class: "height_age" %>
+            </div>
+            <div class = "height_age_box">
+                <%= f.label "Height (in)" %>
+                <br>
+                <%= f.number_field :height_inch, class: "height_age" %>
+            </div>
+        </div>
         <br>
         <br>
         <%= f.submit %>
