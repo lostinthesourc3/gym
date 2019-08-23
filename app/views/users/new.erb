@@ -20,17 +20,17 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
-    <div class="parent">
-        <span class = "number_box_1">
+    <div class="parent_height_age">
+        <div class = "height_age_box">
             <%= f.label :age %>
             <br>
-            <%= f.number_field :age %>
-        </span>
-        <span class = "number_box_2">
+            <%= f.number_field :age, class: "height_age" %>
+        </div>
+        <div class = "height_age_box">
             <%= f.label "Height (in)" %>
             <br>
-            <%= f.number_field :height_inch %>
-        </span>
+            <%= f.number_field :height_inch, class: "height_age" %>
+        </div>
     </div>
     <br>
     <%# <%= f.label :weight %>
