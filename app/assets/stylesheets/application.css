@@ -265,3 +265,30 @@ p.cart_empty{
   margin-right: 10px;
   margin-bottom: 10px;
 }
+input[type=number].height_age{
+  width: 100%;
+  background-color: white;
+  display: block;
+  color: black;
+  text-align: left;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  font-family: 'Inconsolata', monospace;
+  border: 0px;
+  font-size: 15px;
+  transition-duration: 0.4s;
+}
+.height_age_box{
+  width:45%;
+  margin-right: 23px;
+} 
+.parent_height_age{
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  border-color: white;
+
+} 
